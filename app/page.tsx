@@ -11,6 +11,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { SocialIcon } from "@/components/social-icon"
 import { TracingBeam } from "@/components/ui/tracing-beam"
 import { downloadVideo } from "@/lib/download-video"
+import { GoogleAnalytics } from "nextjs-google-analytics"
 
 export default function Home() {
   const [url, setUrl] = useState("")
@@ -46,6 +47,8 @@ export default function Home() {
     "Download videos online effortlessly by pasting the link, choosing quality, and clicking download instantly."
 
   return (
+    <>
+            <GoogleAnalytics trackPageViews gaMeasurementId="G-RV9D9NVBGH" />
     <main className="flex min-h-screen flex-col items-center relative overflow-hidden bg-black">
       <BackgroundBeams className="absolute inset-0" />
 
@@ -137,5 +140,7 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
+
   )
 }
