@@ -1,11 +1,11 @@
 "use client";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles } from "lucide-react";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BoxesCore } from "@/components/ui/background-boxes";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { SocialIcon } from "@/components/social-icon";
@@ -13,6 +13,7 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { downloadVideo } from "@/lib/download-video";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import clarity from "@microsoft/clarity";
+import Link from "next/link";
 export default function Home() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ export default function Home() {
   };
   useEffect(() => {
     // Only run in production
-      clarity.init('r3vmzzd2r0');
+    clarity.init("r3vmzzd2r0");
   }, []);
 
   const taglineWords =
@@ -54,17 +55,29 @@ export default function Home() {
     <>
       <GoogleAnalytics trackPageViews gaMeasurementId="G-RV9D9NVBGH" />
       <main className="flex min-h-screen flex-col items-center relative overflow-hidden bg-black">
-        <BackgroundBeams className="absolute inset-0" />
-
+        {/* <BackgroundBeams className="absolute inset-0" /> */}
+ <BoxesCore className="absolute inset-0"  />
         <nav className="w-full flex justify-between items-center p-4 z-10">
           <h1 className="text-2xl font-bold text-white">VideoVault</h1>
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="rounded-full">
-              <Sparkles className="mr-2 h-4 w-4" /> Star me on GitHub
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-full">
-              Follow me on Twitter
-            </Button>
+            <Link
+              href="https://github.com/punit-mistry/video-vault"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="sm" className="rounded-full">
+                <Sparkles className="mr-2 h-4 w-4" /> Star me on GitHub
+              </Button>
+            </Link>
+            <Link
+              href="https://x.com/punitmistry49"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="sm" className="rounded-full">
+                Follow me on Twitter
+              </Button>
+            </Link>
           </div>
         </nav>
 
@@ -78,7 +91,7 @@ export default function Home() {
             </Button>
 
             <div className="relative h-40 w-full">
-              <SparklesCore
+              {/* <SparklesCore
                 id="tsparticlesfullpage"
                 background="transparent"
                 minSize={0.6}
@@ -86,7 +99,7 @@ export default function Home() {
                 particleDensity={100}
                 className="w-full h-full"
                 particleColor="#FFFFFF"
-              />
+              /> */}
               <h1 className="absolute inset-0 flex items-center justify-center text-7xl font-bold text-center text-white">
                 VideoVault
               </h1>
@@ -101,7 +114,6 @@ export default function Home() {
               <SocialIcon platform="instagram" />
               <SocialIcon platform="youtube" />
               <SocialIcon platform="facebook" />
-              <SocialIcon platform="snapchat" />
             </div>
 
             <TracingBeam className="px-6">
